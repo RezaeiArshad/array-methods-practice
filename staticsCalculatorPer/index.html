@@ -4,10 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Fill This in" />
-    <title>Fill This in</title>
+    <title>Statics Calculator</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   </head>
   <body>
+    <h1>ماشین حساب آماری</h1>
+    <fieldset>
+    <div>
+      <h2>یک لیست از اعداد که با کاما از هم جدا شدند وارد کنید</h2>
+      <form onsubmit="checkInputs();
+          return false">
+         <label for="input">اعداد :</label>
+         <input placeholder="5, 6, 2, 3 : مثل" id="input" />
+         <button type="submit">تایید</button>
+      </form>
+    </div>
+    <p>میانگین یک گروه از اعداد جمع تمامی اعضای گروه تقسیم بر تعداد اعضای گروه است</p>
+    <h3><span id="mean"></span> : میانگین</h3>
+    <p>میانه یک گروه از اعداد عددی است که دقیقا در وسط گروه قرار میگیرد وقتی که گروه از بزرگ به کوچک مرتب شده باشد</p>
+    <h3><span id="median"></span> : میانه</h3>
+    <p>مد یک گروه از اعداد عضوی از آن گروه است که بیشترین دفعات تکرار را داشته است</p>
+    <h3><span id="mode"></span> : مد</h3>
+    <p>دامنه تغییرات یک گروه از اعداد فاصله بین بزرگترین و کوچک ترین عضو است</p>
+    <h3><span id="range"></span> : دامنه تغییرات</h3>
+    <p>واریانس یک گروه از اعداد نشان دهنده این است که اعضای گروه چقدر با میانگین آن گروه فاصله دارند</p>
+    <h3><span id="variance"></span> : واریانس</h3>
+    <p>انحراف معیار یک گروه از اعداد جذر مثبت واریانس آن گروه است</p>
+    <h3><span id="standard-deviation"></span> : انحراف معیار</h3>
+    <p>ضریب تغییرات یک گروه از اعداد حاصل تقسیم انحراف معیار آن گروه بر میانگین آن گروه است</p>
+    <h3><span id="coefficient-of-variation"></span> : ضریب تغییرات</h3>
+    </fieldset>
     <script src="script.js"></script>
   </body>
   </html>
