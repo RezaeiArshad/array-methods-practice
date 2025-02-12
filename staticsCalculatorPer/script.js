@@ -9,8 +9,9 @@ const standardDeviation = document.getElementById("standard-deviation");
 const coefficientOfVariation = document.getElementById("coefficient-of-variation");
 
 const getMean = (array) => {
-   const meanVal = (array.reduce((acc, el) =>  acc + el,0)) / 2
+   const meanVal = (array.reduce((acc, el) =>  acc + el,0)) / array.length;
    mean.textContent = meanVal;
+   return meanVal;
 }
 
 const getMedian = (array) => {
@@ -42,10 +43,36 @@ const getMode = (array) => {
         }
     });
     if (new Set(Object.values(counts)).size === 1) {
-        median.textContent = "ندارد";
+        mode.textContent = "ندارد";
         return
     }
     const mostTimes = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+    const modeVal = Object.keys(counts).filter((el) => counts[el] === counts[mostTimes]).join(", ")
+    mode.textContent = modeVal;
+}
+
+const getRange = (array) => {
+    const rangeVal = Math.max(...array) - Math.min(...array);
+    range.textContent = rangeVal;
+}
+
+const getVariance = (array) => {
+    const meanValue = getMean(array);
+    const varianceVal = array.reduce((acc, el) => acc + ((el - meanValue) ** 2),0) / array.length;
+    variance.textContent = varianceVal;
+    return varianceVal;
+}
+
+const getStandardDeviation = (array) => {
+   const standardDeviationVal = getVariance(array) ** 0.5;
+   // ffc used the Math.sqrt() method
+   standardDeviation.textContent = standardDeviationVal;
+   return standardDeviationVal;
+}
+
+const getCoefficientOfVariation = (array) => {
+   const coefficientOfVariationVal = getStandardDeviation(array) / getMean(array);
+   coefficientOfVariation.textContent = coefficientOfVariationVal;
 }
 
 const checkInputs = () => {
@@ -58,4 +85,8 @@ const checkInputs = () => {
     getMean(values);
     getMedian(values);
     getMode(values);
+    getRange(values);
+    getVariance(values);
+    getStandardDeviation(values);
+    getCoefficientOfVariation(values);
 }
